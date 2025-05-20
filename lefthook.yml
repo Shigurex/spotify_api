@@ -15,4 +15,5 @@ post-merge:
   parallel: true
   commands:
     sync:
-      run: uv sync
+      run: |
+        uv sync
