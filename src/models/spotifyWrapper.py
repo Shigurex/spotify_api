@@ -38,11 +38,11 @@ class SpotifyWrapper:
         else:
             raise Exception(f"アーティスト情報の取得に失敗しました: {response.status_code}")
 
-    def get_playlist_of_user(self, spotify_id):
+    def get_playlist(self, playlist_id: str):
         headers = {
             'Authorization': f'Bearer {self.access_token}'
         }
-        url = f'https://api.spotify.com/v1/playlists/{spotify_id}'
+        url = f'https://api.spotify.com/v1/playlists/{playlist_id}'
 
         response = requests.get(url, headers=headers)
 
