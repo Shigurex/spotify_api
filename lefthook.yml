@@ -10,3 +10,9 @@ pre-commit:
       run: |
         uv run ruff check --fix {staged_files}
         git add {staged_files}
+
+post-merge:
+  parallel: true
+  commands:
+    sync:
+      run: uv sync
