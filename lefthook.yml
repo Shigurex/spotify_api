@@ -1,0 +1,19 @@
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to following link:
+#   https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+
+pre-commit:
+  parallel: true
+  commands:
+    fix:
+      run: |
+        uv run ruff check --fix {staged_files}
+        git add {staged_files}
+
+post-merge:
+  parallel: true
+  commands:
+    sync:
+      run: |
+        uv sync
